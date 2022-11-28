@@ -1,20 +1,31 @@
-version: '3.7'
+version: "3.7"
 services:
-  mongo-db:
-    image: mongo
+  mongo_db:
+    container_name: db_container_use
+    image: mongo:latest
+    restart: always
     ports:
-      - '27017:27017'
+      - "27017:27017"
+    volumes:
+      - mongo_db:/data/db
 
   server:
     build: .
-    image: sanjaysaini2000/meanstack_backend
+    image: cop_backend
     ports:
-      - '3000:3000'
-    links:
-      - mongo-db
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - DB_CONNECTION=mongodb://mongo_db:27017/customerDb
+    depends_on:
+      - mongo_db
 
   client:
     build: client
-    image: sanjaysaini2000/meanstack_frontend
+    image: cop_frontend
     ports:
-      - '80:80'
+      - "80:80"
+
+volumes:
+  mongo_db: {}

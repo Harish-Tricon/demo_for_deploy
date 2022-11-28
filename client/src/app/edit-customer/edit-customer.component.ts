@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { Customer } from "../shared/customer.model";
-import { CustomerService } from "../shared/customer.service";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { Customer } from '../shared/customer.model';
+import { CustomerService } from '../shared/customer.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: "app-edit-customer",
-  templateUrl: "./edit-customer.component.html",
-  styleUrls: ["./edit-customer.component.css"]
+  selector: 'app-edit-customer',
+  templateUrl: './edit-customer.component.html',
+  styleUrls: ['./edit-customer.component.css']
 })
 export class EditCustomerComponent implements OnInit {
   customerDetail: Customer;
@@ -16,24 +16,24 @@ export class EditCustomerComponent implements OnInit {
     private router: Router
   ) {
     this.customerDetail = {
-      _id: "",
-      first_name: "",
-      last_name: "",
-      gender: "",
+      _id: '',
+      first_name: '',
+      last_name: '',
+      gender: '',
       age: null,
-      email: ""
+      email: ''
     };
   }
 
   ngOnInit() {
-    this.GetCustomerFromService(this.route.snapshot.paramMap.get("id"));
+    this.GetCustomerFromService(this.route.snapshot.paramMap.get('id'));
   }
 
   updateCustomer(updateCustomerForm) {
     this.customerService
       .PutCustomer(updateCustomerForm.value)
       .subscribe(resp => {
-        this.router.navigate([""]);
+        this.router.navigate(['']);
       });
   }
 
@@ -44,6 +44,6 @@ export class EditCustomerComponent implements OnInit {
   }
 
   backToHome() {
-    this.router.navigate([""]);
+    this.router.navigate(['']);
   }
 }

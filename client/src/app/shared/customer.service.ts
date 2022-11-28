@@ -1,14 +1,14 @@
-import { Customer } from "./customer.model";
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { Customer } from './customer.model';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CustomerService {
   customers: Customer[];
 
-  readonly APIUrl = "http://localhost:3000/Customers";
+  readonly APIUrl = 'Customers';
 
   constructor(private http: HttpClient) {}
 

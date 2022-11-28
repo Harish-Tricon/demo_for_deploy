@@ -1,11 +1,11 @@
-import { CustomerService } from "../shared/customer.service";
-import { Component, OnInit } from "@angular/core";
-import { Customer } from "../shared/customer.model";
+import { CustomerService } from '../shared/customer.service';
+import { Component, OnInit } from '@angular/core';
+import { Customer } from '../shared/customer.model';
 
 @Component({
-  selector: "app-list-customer",
-  templateUrl: "./list-customer.component.html",
-  styleUrls: ["./list-customer.component.css"]
+  selector: 'app-list-customer',
+  templateUrl: './list-customer.component.html',
+  styleUrls: ['./list-customer.component.css']
 })
 export class ListCustomerComponent implements OnInit {
   deletedCustomerId: string;
