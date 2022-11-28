@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use("/customers_get_3", customer);
 app.use(express.static("public"));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/index.html"));
+  res.sendFile(path.join(__dirname, "client/mean-stack-application/public/index.html"));
 });
 
 const port = process.env.port;
